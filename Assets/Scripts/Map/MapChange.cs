@@ -60,12 +60,12 @@ public class MapChange : MonoBehaviour
         }
         Layer = GameObject.Find("Map/"+CurrentLayer);
         Layer.GetComponent<Collider2D>().enabled = true;
-        for(int i = 0; i <= MaxLayer; i++)
+        for(int i = 0; i < MaxLayer; i++)
         {
             Layer = GameObject.Find("Map/"+i);
-            if(i <= CurrentLayer & CurrentLayer-i < 3)
+            if(CurrentLayer - i >= 0 & CurrentLayer - i <= 3 )
             {
-                float Brightness = 1-((CurrentLayer - i)/0.3f);
+                float Brightness = 1-(i/0.2f);
                 Layer.GetComponent<Renderer>().enabled = true;
                 Layer.GetComponent<Tilemap>().color = new Color(Brightness,Brightness,Brightness,1);
             }
