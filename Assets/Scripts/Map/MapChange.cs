@@ -1,78 +1,108 @@
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class MapChange : MonoBehaviour
 {
-    public int CurrentLayer;
-    public int MaxLayer;
+    // public int currentlayer;
+    // public int maxlayer;
+    // public int playerlayer;
+    // // private InputAction layerfront;
+    // private InputAction layerback;
+    // private InputAction changeplayerlayerfront;
+    // private InputAction changeplayerlayerback;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MaxLayer = 0;
-        bool LayerExist = true;
-        while(LayerExist == true)
-        {
-            if(GameObject.Find("Map/"+MaxLayer) != null)
-            {
-                MaxLayer++;
-            }
-            else
-            {
-                LayerExist = false;
-            }
-        }
-        MaxLayer--;
-        ChangeLayer(false, 0);
+        // maxlayer = 0;
+        // bool layerexist = true;
+        // while(layerexist == true)
+        // {
+        //     if(GameObject.Find("Map/"+maxlayer) != null)
+        //     {
+        //         maxlayer++;
+        //     }
+        //     else
+        //     {
+        //         layerexist = false;
+        //     }
+        // }
+        // maxlayer--;
+        // playerlayer = 0;
+        // ChangeLayer(false, 0);
+        // layerfront = InputSystem.actions.FindAction("LayerFront");
+        // layerback = InputSystem.actions.FindAction("LayerBack");
+        // changeplayerlayerfront = InputSystem.actions.FindAction("ChangePlayerLayerFront");
+        // changeplayerlayerback = InputSystem.actions.FindAction("ChangePlayerLayerBack");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // if(layerfront.IsPressed())
+        // {
+        //     ChangeLayer(true,1);
+        // }
+        // if(layerback.IsPressed())
+        // {
+        //     ChangeLayer(true,-1);
+        // }
+        // if(changeplayerlayerfront.IsPressed())
+        // {
+        //     playerlayer++;
+        //     ChangeLayer(true,0);
+        // }
+        // if(changeplayerlayerback.IsPressed())
+        // {
+        //     playerlayer--;
+        //     ChangeLayer(true,0);
+        //}
     }
     void init()
     {
         
     }
-    void ChangeLayer(bool add, int value)
-    {
-        GameObject Layer;
-        Layer = GameObject.Find("Map/"+CurrentLayer);
-        Layer.GetComponent<Collider2D>().enabled = false;
-        if(add == true)
-        {
-            CurrentLayer += value;
-        }
-        if(add == false)
-        {
-            CurrentLayer = value;
-        }
-        while(CurrentLayer < 0 || CurrentLayer > MaxLayer)
-        {
-            if(CurrentLayer > MaxLayer)
-            {
-                CurrentLayer = 0 + CurrentLayer - MaxLayer;
-            }
-            if(CurrentLayer < 0)
-            {
-                CurrentLayer = MaxLayer + CurrentLayer;
-            }
-        }
-        Layer = GameObject.Find("Map/"+CurrentLayer);
-        Layer.GetComponent<Collider2D>().enabled = true;
-        for(int i = 0; i < MaxLayer; i++)
-        {
-            Layer = GameObject.Find("Map/"+i);
-            if(CurrentLayer - i >= 0 & CurrentLayer - i <= 3 )
-            {
-                float Brightness = 1-(i/0.2f);
-                Layer.GetComponent<Renderer>().enabled = true;
-                Layer.GetComponent<Tilemap>().color = new Color(Brightness,Brightness,Brightness,1);
-            }
-            else
-            {
-                Layer.GetComponent<Renderer>().enabled = false;
-            }
-        }
-    }
+    // void ChangeLayer(bool add, int value)
+    // {
+    //     GameObject layer;
+    //     layer = GameObject.Find("Map/"+currentlayer);
+    //     layer.GetComponent<Collider2D>().enabled = false;
+    //     if(add == true)
+    //     {
+    //         currentlayer += value;
+    //     }
+    //     if(add == false)
+    //     {
+    //         currentlayer = value;
+    //     }
+    //     while(currentlayer < 0 || currentlayer > maxlayer)
+    //     {
+    //         if(currentlayer > maxlayer)
+    //         {
+    //             currentlayer = 0 + currentlayer - maxlayer;
+    //         }
+    //         if(currentlayer < 0)
+    //         {
+    //             currentlayer = maxlayer + currentlayer;
+    //         }
+    //     }
+    //     layer = GameObject.Find("Map/"+currentlayer + playerlayer);
+    //     layer.GetComponent<Collider2D>().enabled = true;
+    //     for(int i = 0; i < maxlayer; i++)
+    //     {
+    //         layer = GameObject.Find("Map/"+i);
+    //         if(currentlayer - i >= 0 & currentlayer - i <= 3 )
+    //         {
+    //             float brightness = 1-(i/0.2f);
+    //             layer.GetComponent<Renderer>().enabled = true;
+    //             layer.GetComponent<Tilemap>().color = new Color(brightness,brightness,brightness,1);
+    //         }
+    //         else
+    //         {
+    //             layer.GetComponent<Renderer>().enabled = false;
+    //         }
+    //     }
+    // }
 }
