@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class MapScript : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+    private Tilemap tilemap;
     [SerializeField] private float fadeFactor = 0.2f; // 離れるごとにどれくらい暗くするか (0〜1)
     [SerializeField] private float minBrightness = 0.2f; // 最低限の明るさ（真っ黒防止）
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        tilemap = GetComponent<Tilemap>();
     }
 
     private void OnEnable()
@@ -28,12 +29,23 @@ public class MapScript : MonoBehaviour
     private void UpdateColor(float playerZ)
     {
         // プレイヤーとのZ軸の距離を計算
-        float distance = Mathf.Abs(transform.position.z - playerZ);
+        float distance = transform.position.z - playerZ;
+        
 
         // 距離に応じて明るさを計算（1 = 通常、距離が離れるほど暗く）
         float brightness = Mathf.Max(1.0f - (distance * fadeFactor), minBrightness);
+        if(brightness > 1.0f)
+        {
+            this.gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        }
+        else
+        {
+            // スプライトの色（RGB）を変更
+            this.gameObject.GetComponent<TilemapRenderer>().enabled = true;
+            tilemap.color = new Color(brightness, brightness, brightness, 1.0f);
+        }
 
-        // スプライトの色（RGB）を変更
-        spriteRenderer.color = new Color(brightness, brightness, brightness, 1.0f);
+        
+        
     }
 }

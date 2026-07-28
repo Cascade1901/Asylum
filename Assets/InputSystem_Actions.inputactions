@@ -19,7 +19,7 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -395,9 +395,9 @@
                     "name": "",
                     "id": "f0fb02bd-e189-450e-9953-cde0a0b0a8d3",
                     "path": "<Keyboard>/w",
-                    "interactions": "",
+                    "interactions": "Tap(duration=0.5,pressPoint=0.1)",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "FrontLayer",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -406,9 +406,9 @@
                     "name": "",
                     "id": "ea14792a-3c86-41f9-abdb-6e9d28f4372c",
                     "path": "<Keyboard>/s",
-                    "interactions": "",
+                    "interactions": "Tap(duration=0.5,pressPoint=0.1)",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "BackLayer",
                     "isComposite": false,
                     "isPartOfComposite": false
