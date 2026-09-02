@@ -88,7 +88,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MoverLeft",
+                    "name": "MoveLeft",
                     "type": "Button",
                     "id": "08845a38-aebf-4984-b381-a9cbffeafb12",
                     "expectedControlType": "",
@@ -387,7 +387,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoverLeft",
+                    "action": "MoveLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
