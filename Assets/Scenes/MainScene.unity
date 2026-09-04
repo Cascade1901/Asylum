@@ -7140,10 +7140,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1762626851}
   - component: {fileID: 1762626850}
-  - component: {fileID: 1762626852}
-  - component: {fileID: 1762626853}
   - component: {fileID: 1762626855}
   - component: {fileID: 1762626854}
+  - component: {fileID: 1762626852}
+  - component: {fileID: 1762626853}
+  - component: {fileID: 1762626856}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7345,6 +7346,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1762626856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762626847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836bb47aa9ed9ea4fb1dc1b6dc3ddd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkill
 --- !u!1 &1913058122
 GameObject:
   m_ObjectHideFlags: 0

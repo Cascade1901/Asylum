@@ -113,6 +113,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerSkill1",
+                    "type": "Button",
+                    "id": "a82dd57d-5acb-4960-b253-b1fe032f1959",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerSkill2",
+                    "type": "Button",
+                    "id": "f5a489f7-8823-45e0-a660-be8ab2ae5ac1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "playerSkill3",
+                    "type": "Button",
+                    "id": "e7fe5be9-cc9d-4bb1-b156-702ee82071a5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -410,6 +437,39 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "BackLayer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "600a8297-f68e-4693-a8f9-70644adf2c9d",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerSkill1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3532ddcd-fe3c-4fc3-9fd3-6ade6f21a865",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerSkill2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "198faa46-00d1-466a-96cb-3a5c7be8cd2b",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "playerSkill3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
