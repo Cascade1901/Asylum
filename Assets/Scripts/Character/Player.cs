@@ -102,11 +102,40 @@ public class Player : MonoBehaviour
     }
 
 
+    private bool HasBorderTagInHierarchy(Transform t)
+    {
+        while (t != null)
+        {
+            if (t.CompareTag("border")) return true;
+            t = t.parent;
+        }
+        return false;
+    }
+
     private void MoveLayer(float zOffset)
     {
-        Vector3 newPos = this.gameObject.transform.position;
+        Vector3 oldPos = transform.position;
+        Vector3 newPos = oldPos;
         newPos.z += zOffset;
-        this.gameObject.transform.position = newPos;
+        transform.position = newPos;
+
+        // borderタグのオブジェクトと重なっていたら移動を取り消す
+        Vector2 checkPos = (Vector2)transform.position;
+        Vector2 checkSize = col.bounds.size * 0.9f; // 少し縮小して端のノイズを除く
+        Collider2D[] hits = Physics2D.OverlapBoxAll(checkPos, checkSize, 0f);
+        Debug.Log($"OverlapBoxAll: pos={checkPos}, size={checkSize}, hits={hits.Length}");
+        foreach (Collider2D hit in hits)
+        {
+            if (hit == col) continue;
+            string parentInfo = hit.transform.parent != null ? $", parent={hit.transform.parent.name}(tag={hit.transform.parent.tag})" : "";
+            Debug.Log($"  hit: {hit.gameObject.name}, tag={hit.tag}{parentInfo}");
+            if (HasBorderTagInHierarchy(hit.transform))
+            {
+                transform.position = oldPos;
+                Debug.Log("borderに重なったので移動をキャンセル");
+                return;
+            }
+        }
 
         // Z座標が変わったとき、登録されているすべての層に新しいZ座標を通知
         OnPlayerZChanged?.Invoke(transform.position.z);
