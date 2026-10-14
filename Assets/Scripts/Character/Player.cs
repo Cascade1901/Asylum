@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
         Vector3 newPos = oldPos;
         newPos.z += zOffset;
         transform.position = newPos;
+        OnPlayerZChanged?.Invoke(transform.position.z);
 
         // borderタグのオブジェクトと重なっていたら移動を取り消す
         Vector2 checkPos = (Vector2)transform.position;
@@ -132,12 +133,10 @@ public class Player : MonoBehaviour
             if (HasBorderTagInHierarchy(hit.transform))
             {
                 transform.position = oldPos;
+                OnPlayerZChanged?.Invoke(oldPos.z);
                 Debug.Log("borderに重なったので移動をキャンセル");
                 return;
             }
         }
-
-        // Z座標が変わったとき、登録されているすべての層に新しいZ座標を通知
-        OnPlayerZChanged?.Invoke(transform.position.z);
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(TilemapRenderer))]
 public class MapScript : MonoBehaviour
 {
     private Tilemap tilemap;
